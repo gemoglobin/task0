@@ -11,12 +11,14 @@ namespace task0.Sources
     class ActionStorage : IStorage<MathAction>
     {
         List<MathAction> _actions;
+        List<Operation> _operations;
 
         StreamReader inputfile;
         StreamWriter outputFile;
 
-        public ActionStorage(string inputFileNime, string outputFileNime)
+        public ActionStorage(string inputFileNime, string outputFileNime, List<Operation> operations)
         {
+            _operations = operations;
             inputfile = new StreamReader(inputFileNime);
             outputFile = new StreamWriter(outputFileNime);
         }
@@ -31,8 +33,10 @@ namespace task0.Sources
             {
                 MathAction action = new MathAction();
                 action.inputRow = line;
-                action.ParseInputString();
-                _actions.Add(action);
+                action.ParseInputString(_operations);
+
+                if(action.operation != null)
+                    _actions.Add(action);
             }
             inputfile.Close();
 

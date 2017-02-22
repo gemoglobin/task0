@@ -49,6 +49,7 @@
     <Compile Include="Sources\ActionStorage.cs" />
     <Compile Include="Sources\Calculator.cs" />
     <Compile Include="Sources\interfaces\IStorage.cs" />
+    <Compile Include="Sources\Operation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

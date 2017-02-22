@@ -8,12 +8,12 @@ using task0.Sources.interfaces;
 namespace task0.Sources
 {
     public static class Calculator
-    {
+    {        
         public static void Calculate(List<MathAction> actions)
         {
             foreach (var act in actions)
             {
-                switch (act.operation)
+                switch (act.operation._view)
                 {
                     case "+":
                         act.result = act.leftOperand + act.rightOperand;
@@ -40,11 +40,13 @@ namespace task0.Sources
             }
         }
 
-        public static int gcd(int a, int b)
+        private static int gcd(int a, int b)
         {
             if (b == 0)
                 return Math.Abs(a);
             return gcd(b, a % b);
         }
+
+
     }
 }

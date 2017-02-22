@@ -13,10 +13,10 @@ namespace task0.Sources
         public string inputRow { get; set; }
         public int leftOperand { get; set; }
         public int rightOperand { get; set; }
-        public string operation { get; set; }
+        public Operation operation { get; set; }
         public int result { get; set; }
 
-        public void ParseInputString()
+        public void ParseInputString(List<Operation> _operations)
         {
             string pattern = @"^\s*(\d+)\s*([-+*/^#])\s*(\d+)\s*$";
 
@@ -33,7 +33,8 @@ namespace task0.Sources
                     rightOperand = value2;
                 else
                     Console.WriteLine("Attempted conversion of '{0}' failed.", m.Groups[3].Value);
-                operation = m.Groups[2].Value;    
+
+                operation = _operations.Single(s => s._view == m.Groups[2].Value);
             }
         }
     }
