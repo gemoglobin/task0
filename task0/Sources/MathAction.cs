@@ -38,4 +38,40 @@ namespace task0.Sources
             }
         }
     }
+
+    class CmpOperation<T> : IComparer<T> where T : MathAction
+    {
+        public int Compare(T x, T y)
+        {
+            if (x.operation._priority < y.operation._priority)
+                return -1;
+            if (x.operation._priority > y.operation._priority)
+                return 1;
+            else return 0;
+        }
+    }
+
+    class CmpROperand<T> : IComparer<T> where T : MathAction
+    {
+        public int Compare(T x, T y)
+        {
+            if (x.rightOperand < y.rightOperand)
+                return -1;
+            if (x.rightOperand > y.rightOperand)
+                return 1;
+            else return 0;
+        }
+    }
+
+    class CmpResult<T> : IComparer<T> where T : MathAction
+    {
+        public int Compare(T x, T y)
+        {
+            if (x.result < y.result)
+                return 1;
+            if (x.result > y.result)
+                return -1;
+            else return 0;
+        }
+    }
 }

@@ -45,12 +45,40 @@ namespace task0.Sources
 
         public void Save()
         {
-            foreach(var act in _actions)
+            outputFile.WriteLine("Результат:");
+            foreach (var act in _actions)
             {
                 if(act.operation != null)
                     outputFile.WriteLine(act.inputRow + "=" + act.result);
             }
-            outputFile.WriteLine();
+            outputFile.WriteLine("Возрастание второго аргумента:");
+
+            CmpROperand <MathAction> cmpR = new CmpROperand<MathAction>();
+            _actions.Sort(cmpR);
+            foreach (var act in _actions)
+            {
+                if (act.operation != null)
+                    outputFile.WriteLine(act.inputRow + "=" + act.result);
+            }
+            outputFile.WriteLine("Убывание результата:");
+
+            CmpResult<MathAction> cmpResult = new CmpResult<MathAction>();
+            _actions.Sort(cmpResult);
+            foreach (var act in _actions)
+            {
+                if (act.operation != null)
+                    outputFile.WriteLine(act.inputRow + "=" + act.result);
+            }
+            outputFile.WriteLine("По действиям:");
+
+            CmpOperation <MathAction> cmpOperation = new CmpOperation<MathAction>();
+            _actions.Sort(cmpOperation);
+            foreach (var act in _actions)
+            {
+                if (act.operation != null)
+                    outputFile.WriteLine(act.inputRow + "=" + act.result);
+            }
+
             outputFile.Close();
         }
     }

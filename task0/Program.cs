@@ -19,11 +19,12 @@ namespace task0
                 new Operation { _name = "нод", _view = "#", _priority = 6 },
                 new Operation { _name = "возведение в степень", _view = "^", _priority = 1 }
             };
+
             ActionStorage storage = new ActionStorage("input.txt", "output.txt", operations);
             List<MathAction> actions = storage.GetAll().ToList();
 
             Calculator.Calculate(actions);
-
+            
             storage.Save();
             Console.ReadLine();
         }
