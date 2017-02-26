@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace task0.Sources.interfaces
 {
-    public interface IStorage<T> where T : class
+    public interface IStorage<T> where T : MathAction
     {
         IEnumerable<T> GetAll();
         

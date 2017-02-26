@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using task0.Sources;
 
 namespace task0
@@ -10,6 +9,7 @@ namespace task0
     {
         static void Main(string[] args)
         {
+            
             List<Operation> operations = new List<Operation>
             {
                 new Operation { _name = "сложение", _view = "+", _priority = 4 },
@@ -22,11 +22,8 @@ namespace task0
 
             ActionStorage storage = new ActionStorage("input.txt", "output.txt", operations);
             List<MathAction> actions = storage.GetAll().ToList();
-
-            Calculator.Calculate(actions);
-            
+            Calculator.Calculate(actions);            
             storage.Save();
-            Console.ReadLine();
         }
     }
 }
